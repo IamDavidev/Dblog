@@ -4,6 +4,7 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 import BaseTitle from '../components/BaseTitle.astro'
+import MarginPage from '../components/atoms/MarginPage.astro'
 ---
 
 <!doctype html>
@@ -12,10 +13,12 @@ import BaseTitle from '../components/BaseTitle.astro'
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
+		<MarginPage>
 		<Header />
 		<main>
 			<BaseTitle />
 			<Footer />
 		</main>
+		</MarginPage>
 	</body>
 </html>

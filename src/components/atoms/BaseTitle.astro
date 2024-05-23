@@ -1,16 +1,29 @@
 ---
 
-const title = 'Dblog'
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props as Props
+
+const getSizeTitle = (title: string) => {
+  if (title.length >= 8) return '18vw'
+  if (title.length >= 10) return '12vw'
+  if (title.length >= 12) return '10vw'
+  return '24vw'
+}
 
 const classes = {
-  container: 'flex items-center w-full flex-col',
-  title: 'lg:text-title w-fit',
+  container: 'flex items-center w-full flex-col max-w-full overflow-hidden',
+  title: 'w-fit',
   divider: 'border-b-2 border-gray-400  w-full'
 }
 ---
 
 <div class={classes.container} >
     <div class={classes.divider} />
-    <h1 class={classes.title}>{title}</h1>
+    <h1
+    style={`font-size: ${getSizeTitle(title)};`}
+     class={classes.title}>{title}</h1>
     <div class={classes.divider} />
 </div>

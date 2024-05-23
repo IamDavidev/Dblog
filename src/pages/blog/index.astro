@@ -1,18 +1,17 @@
 ---
-import BaseHead from '../../components/BaseHead.astro'
-import Header from '../../components/Header.astro'
-import Footer from '../../components/Footer.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
 import { getCollection } from 'astro:content'
-import FormattedDate from '../../components/FormattedDate.astro'
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
 import PageLayout from '../../layouts/PageLayout.astro'
+import PostCard from '../../components/PostCard.astro'
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 )
 
 const classes = {
-  container: 'max-w-3xl my-4 mx-auto'
+  container: 'max-w-3xl my-4 mx-auto',
+  list_posts: 'flex flex-row flex-wrap gap-8'
 }
 ---
 
@@ -86,7 +85,7 @@ const classes = {
 			}
 		}
 	</style> -->
-	<section class={classes.container}>
+	<!-- <section class={classes.container}>
 		<ul>
 			{
 				posts.map((post) => (
@@ -107,5 +106,24 @@ const classes = {
 				))
 			}
 		</ul>
-	</section>
+	</section> -->
+	<div>
+		<div>
+			<h2>All blog posts</h2>
+		</div>
+		<section class={classes.list_posts}>
+			{
+				posts.map((post) => (
+					<PostCard
+						title={post.data.title}
+						description={post.data.description}
+						pubDate={post.data.pubDate}
+						heroImage={post.data.heroImage ?? ""}
+						author={post.data.author}
+						tags={post.data.tags}
+					 />
+				))
+			}
+		</section>
+	</div>
 </PageLayout>

@@ -1,0 +1,57 @@
+---
+interface Props {
+  heroImage: string
+  author: string
+  pubDate: Date
+  title: string
+  description: string
+  tags: string[]
+}
+
+const { heroImage, author, pubDate, title, description, tags } =
+  Astro.props as Props
+
+const parsePubDate = (date: Date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
+
+const classes = {
+  container: 'min-w-64  max-w-sm border border-gray-500',
+  header: {
+    contianer: 'w-full mb-8',
+    img: 'w-full h-auto'
+  },
+  main: {
+    container: '',
+    details: '',
+    title: '',
+    content: '',
+    tags: ''
+  },
+  footer: {
+    container: ''
+  }
+}
+---
+
+<article class={classes.container}>
+    <header class={classes.header.contianer}>
+        <img class={classes.header.img} src={heroImage} alt="hero image" />
+    </header>
+    <div>
+        <div class="text-[#FF0080] font-semibold text-sm">
+            <spna>
+                {author}
+            </spna>
+            <span>
+                {parsePubDate(pubDate)}
+            </span>
+        </div>
+        <div></div>
+    </div>
+    <footer></footer>
+</article>

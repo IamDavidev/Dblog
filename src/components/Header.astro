@@ -1,9 +1,57 @@
 ---
+interface Link {
+  title: string
+  url: string
+}
 
+const links: Link[] = [
+  {
+    title: 'Blog',
+    url: '/blog'
+  },
+  {
+    title: 'Projects',
+    url: '/projects'
+  },
+  {
+    title: 'About',
+    url: '/about'
+  },
+  {
+    title: 'Newsletter',
+    url: '/newsletter'
+  }
+]
+
+const classes = {
+  container:
+    'mb-7 md:mb-14 flex flex-row justify-between items-center text-[#111]',
+  left: '',
+  right: {
+    container: 'flex flex-row justify-between items-center gap-4',
+    navbar: {
+      container: 'flex flex-row justify-between items-center gap-4',
+      item: ' hover:text-sky-600 text-xl'
+    },
+    toogle: ''
+  }
+}
 ---
 
-<header>
-	<nav>
-		Header
-	</nav>
+<header class={classes.container}>
+	<div class={classes.left}>David Lezama</div>
+	<div class={classes.right.container}>
+		<nav class={classes.right.navbar.container}>
+			{
+				links.map((link: Link) => {
+					return (
+						<a href={link.url} class={classes.right.navbar.item}>
+							<span>{link.title}</span>
+						</a>
+					);
+				})
+			}
+		</nav>
+		<button>🌑</button>
+	</div>
 </header>

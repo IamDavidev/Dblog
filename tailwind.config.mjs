@@ -17,6 +17,11 @@ export default {
         'accent-yellow': '#FFD700',
         'accent-green': '#027A48',
         'accent-blue': '#3538C'
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        raleway: ['Raleway', 'Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace']
       }
     }
   },

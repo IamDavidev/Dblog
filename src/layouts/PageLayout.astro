@@ -11,6 +11,10 @@ interface Props {
 }
 
 const { title, description, lang } = Astro.props as Props
+
+const classes = {
+  body: 'bg-primary-ligth text-primary-dark dark:bg-primary-dark dark:text-primary-ligth'
+}
 ---
 
 <!doctype html>
@@ -18,7 +22,7 @@ const { title, description, lang } = Astro.props as Props
     <head>
         <BaseHead title={title} description={description} />
     </head>
-    <body>
+    <body class={classes.body}>
         <MarginPage>
             <Header />
             <main>

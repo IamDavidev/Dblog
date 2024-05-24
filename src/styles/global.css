@@ -1,10 +1,19 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
 :root {
+
+	/* Colors Theme */
+
+	--primary-light: #f3f4f6;
+	--primary-dark: #1a1a1a;
+	--content-light: #667085;
+	--content-dark: #C0C5D0;
+	--accent-pink: #FF0080;
+	--accent-dark-blue: #363F72;
+	--accent-orange: #C4320A;
+	--accent-yellow: #FFD700;
+	--accent-green: #027A48;
+	--accent-blue: #026AA2;
+
+
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -16,7 +25,7 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 
-@font-face {
+/* @font-face {
 	font-family: 'Atkinson';
 	src: url('/fonts/atkinson-regular.woff') format('woff');
 	font-weight: 400;
@@ -30,10 +39,64 @@
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
+} */
+
+@font-face {
+	font-family: 'Inter';
+	src: url('/fonts/inter-regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
+@font-face {
+	font-family: 'Inter';
+	src: url('/fonts/inter-semibold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Raleway";
+	src: url("/fonts/raleway-regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Raleway";
+	src: url("/fonts/raleway-semibold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "JetBrains";
+	src: url("/fonts/jetbrains-regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "JetBrains";
+	src: url("/fonts/jetbrains-semibold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+
+
+
+
+
 body {
-	font-family: 'Atkinson', sans-serif;
+	font-family: 'Inter', sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;

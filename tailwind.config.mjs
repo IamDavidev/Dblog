@@ -7,9 +7,9 @@ export default {
         title: ['21rem']
       },
       colors: {
-        'primary-ligth': '#f3f4f6',
+        'primary-light': '#f3f4f6',
         'primary-dark': '#1a1a1a',
-        'content-ligth': '#667085',
+        'content-light': '#667085',
         'content-dark': '#C0C5D0',
         'accent-pink': '#FF0080',
         'accent-dark-blue': '#363F72',

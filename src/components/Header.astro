@@ -27,13 +27,13 @@ const links: Link[] = [
 
 const classes = {
   container:
-    'mb-7 md:mb-14 flex flex-row justify-between items-center text-[#111]',
-  left: 'text-[#111]',
+    'mb-7 md:mb-14 flex flex-row justify-between items-center text-primary-dark dark:text-primary-light',
+  left: 'text-primary-dark dark:text-primary-light text-2xl font-bold',
   right: {
     container: 'flex flex-row justify-between items-center gap-4',
     navbar: {
       container: 'flex flex-row justify-between items-center gap-4',
-      item: ' text-[#111] hover:text-sky-600 text-xl'
+      item: 'hover:text-accent-pink text-xl text-primary-dark dark:text-primary-light'
     },
     toogle: ''
   }
@@ -41,7 +41,8 @@ const classes = {
 ---
 
 <header class={classes.container}>
-	<div class={classes.left}>David Lezama</div>
+	<a href="/" class={classes.left}>
+    David Lezama</a>
 	<div class={classes.right.container}>
 		<nav class={classes.right.navbar.container}>
 			{

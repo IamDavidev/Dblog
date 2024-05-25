@@ -1,4 +1,6 @@
 ---
+import ButtonToggleTheme from './atoms/ButtonToggleTheme.astro'
+
 interface Link {
   title: string
   url: string
@@ -52,6 +54,7 @@ const classes = {
 				})
 			}
 		</nav>
-		<button>🌑</button>
+		<!-- o<button class='toggle-theme'>🌑</button> -->
+    <ButtonToggleTheme client:visible />
 	</div>
 </header>

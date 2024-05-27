@@ -7,7 +7,7 @@ interface Props {
 const { title } = Astro.props as Props
 
 const getSizeTitle = (title: string) => {
-  if (title.length >= 8) return '18vw'
+  if (title.length >= 8) return '16vw'
   if (title.length >= 10) return '12vw'
   if (title.length >= 12) return '10vw'
   return '24vw'

@@ -1,4 +1,6 @@
 ---
+import Tag from './atoms/Tag.astro'
+
 interface Props {
   heroImage: string
   author: string
@@ -40,8 +42,7 @@ const classes = {
         'text-2xl mb-3 font-raleway font-semibold text-primary-dark dark:text-primary-light',
       description: 'text-content-dark dark:text-content-light text-base',
       tags: {
-        container: 'flex flex-wrap gap-2',
-        tag: 'text-sm text-accent-pink font-semibold bg-accent-pink-light p-1 rounded-md'
+        container: 'flex flex-wrap gap-2'
       }
     }
   },
@@ -57,9 +58,6 @@ const classes = {
     </header>
     <div>
         <div class={classes.main.details}>
-            <!-- <span>
-                {author}
-            </span> -->
             <span>
                 {parsePubDate(pubDate)}
             </span>
@@ -73,7 +71,7 @@ const classes = {
             </p>
             <div class={classes.main.content.tags.container}>
                 {tags.map((tag) => (
-                    <span class={classes.main.content.tags.tag}>{tag}</span>
+                    <Tag text={tag} />
                 ))}
             </div>
         </div>

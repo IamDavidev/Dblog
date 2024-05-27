@@ -1,0 +1,27 @@
+---
+import { colorsWithOpacity, type PickColor } from '../../lib/utils/colors.util'
+
+const keys = Object.keys(colorsWithOpacity)
+
+const randomColor = keys[Math.floor(Math.random() * keys.length)]
+
+const color = colorsWithOpacity[randomColor as PickColor]
+
+interface Props {
+  text: string
+}
+
+const { text } = Astro.props as Props
+
+const classes = {
+  tag: 'text-sm text-accent-pink font-semibold bg-accent-pink-light p-1 rounded-md bg-[#ECFDsF]'
+}
+---
+
+<span
+    class={classes.tag}
+    style={{
+        color : color.text,
+        backgroundColor : color.bg,
+    }}
+>{text}</span>

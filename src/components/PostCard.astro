@@ -39,7 +39,10 @@ const classes = {
       title:
         'text-2xl mb-3 font-raleway font-semibold text-primary-dark dark:text-primary-light',
       description: 'text-content-dark dark:text-content-light text-base',
-      tags: ''
+      tags: {
+        container: 'flex flex-wrap gap-2',
+        tag: 'text-sm text-accent-pink font-semibold bg-accent-pink-light p-1 rounded-md'
+      }
     }
   },
   footer: {
@@ -68,9 +71,9 @@ const classes = {
             <p class={classes.main.content.description}>
                 {parseDescription(description)}
             </p>
-            <div class={classes.main.content.tags}>
+            <div class={classes.main.content.tags.container}>
                 {tags.map((tag) => (
-                    <span>{tag}</span>
+                    <span class={classes.main.content.tags.tag}>{tag}</span>
                 ))}
             </div>
         </div>

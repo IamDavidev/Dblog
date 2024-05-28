@@ -1,11 +1,12 @@
 ---
-import { colorsWithOpacity, type PickColor } from '../../lib/utils/colors.util'
+import { colorsWithOpacity } from '../../lib/utils/colors.util'
+import type { PickColor } from '../../lib/utils/colors.util'
 
 const keys = Object.keys(colorsWithOpacity)
 
-const randomColor = keys[Math.floor(Math.random() * keys.length)]
+const randomColorKey = keys[Math.floor(Math.random() * keys.length)]
 
-const color = colorsWithOpacity[randomColor as PickColor]
+const color = colorsWithOpacity[randomColorKey as PickColor]
 
 interface Props {
   text: string
@@ -14,11 +15,12 @@ interface Props {
 const { text } = Astro.props as Props
 
 const classes = {
-  tag: 'text-sm text-accent-pink font-semibold bg-accent-pink-light p-1 rounded-md bg-[#ECFDsF]'
+  tag: 'text-s font-semibold bg-accent-pink-light px-2 rounded-md'
 }
 ---
 
 <span
+    data-color={randomColorKey}
     class={classes.tag}
     style={{
         color : color.text,

@@ -13,7 +13,8 @@ interface Props {
 const { title, description, lang } = Astro.props as Props
 
 const classes = {
-  body: 'bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-primary-light'
+  body: 'bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-primary-light min-h-screen',
+  main: ""
 }
 ---
 
@@ -25,7 +26,7 @@ const classes = {
     <body class={classes.body}>
         <MarginPage>
             <Header />
-            <main>
+            <main class="">
                 <slot />
             </main>
             <Footer />

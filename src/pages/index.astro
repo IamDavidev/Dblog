@@ -2,8 +2,10 @@
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 import BaseTitle from '../components/atoms/BaseTitle.astro'
 import PageLayout from '../layouts/PageLayout.astro'
+import RecentPosts from '../components/RecentPosts.astro'
 ---
 
 <PageLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<BaseTitle title="DBLOG" />
+	<RecentPosts />
 </PageLayout>

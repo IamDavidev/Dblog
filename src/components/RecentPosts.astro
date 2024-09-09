@@ -1,12 +1,15 @@
 ---
+import { getMainPost } from "../lib/posts/get-main-post.util"
+
+const mainPost = await getMainPost()
+
 const classes = {
-    container : "flex ",
+    container : "flex",
     header: {
         container: "",
-        text: "flex flex-"
+        text: "font-raleway text-xl md:text-2xl"
     }
 }
-
 ---
 
 <section class={classes.container}>

@@ -4,10 +4,14 @@ import { getMainPost } from "../lib/posts/get-main-post.util"
 const mainPost = await getMainPost()
 
 const classes = {
-    container : "flex",
+    container : "flex flex-col",
     header: {
         container: "",
-        text: "font-raleway text-xl md:text-2xl"
+        text: "font-raleway text-2xl md:text-3xl"
+    },
+    mainPost: {
+        img: "w-full",
+        title: "text-xl md:text-2xl"
     }
 }
 ---
@@ -16,4 +20,12 @@ const classes = {
     <div class={classes.header.container}>
         <h2 class={classes.header.text}>Recent Posts</h2>
     </div>
+    {
+        mainPost && (
+            <article>
+                <img src={mainPost.data.heroImage} alt={mainPost.data.title} class={classes.mainPost.img} />
+                <h3 class={classes.mainPost.title}>{mainPost.data.title}</h3>
+            </article>
+        )
+    }
 </section>

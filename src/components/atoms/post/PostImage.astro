@@ -1,0 +1,21 @@
+---
+/* ----- Props ----- */
+interface PostImageProps {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props as PostImageProps;
+
+/* ----- Styles ----- */
+const classes = {
+  picture: "w-full h-auto",
+  img: "w-full h-60 object-cover",
+};
+---
+
+<picture class={classes.picture}>
+  <source srcset={src} type="image/webp" />
+  <source srcset={src} type="image/jpeg" />
+  <img class={classes.img} src={src} alt={alt} />
+</picture>

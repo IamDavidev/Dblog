@@ -1,0 +1,28 @@
+---
+/* ----- Props ----- */
+interface DescriptionPostProps {
+  description: string;
+}
+
+const { description } = Astro.props as DescriptionPostProps;
+
+/* ----- actions ----- */
+const cutDescription = (description: string) => {
+  if (description.length > 100) {
+    return `${description.slice(0, 60)}...`;
+  }
+  return description;
+};
+
+/* ----- Styles ----- */
+const classes = {
+  container: "max-w-96 mx-auto h-16",
+  text: "text-content-light text-sm md:text-base m-0 p-0",
+};
+---
+
+<div class={classes.container}>
+  <p class={classes.text}>
+    {cutDescription(description)}
+  </p>
+</div>

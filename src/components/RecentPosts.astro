@@ -1,31 +1,43 @@
 ---
-import { getMainPost } from "../lib/posts/get-main-post.util"
+import { getMainPost } from "../lib/posts/get-main-post.util";
 
-const mainPost = await getMainPost()
+const mainPost = await getMainPost();
 
 const classes = {
-    container : "flex flex-col",
-    header: {
-        container: "",
-        text: "font-raleway text-2xl md:text-3xl"
-    },
-    mainPost: {
-        img: "w-full",
-        title: "text-xl md:text-2xl"
-    }
-}
+  container: "flex flex-col",
+  header: {
+    container: "",
+    text: "font-raleway text-2xl md:text-3xl",
+  },
+  main: {
+    container: "",
+  },
+  mainPost: {
+    container: "",
+    img: "w-full",
+    title: "text-xl md:text-2xl",
+  },
+};
 ---
 
 <section class={classes.container}>
-    <div class={classes.header.container}>
-        <h2 class={classes.header.text}>Recent Posts</h2>
-    </div>
+  <div class={classes.header.container}>
+    <h2 class={classes.header.text}>Recent Posts</h2>
+  </div>
+  <div class={classes.main.container}>
     {
-        mainPost && (
-            <article>
-                <img src={mainPost.data.heroImage} alt={mainPost.data.title} class={classes.mainPost.img} />
-                <h3 class={classes.mainPost.title}>{mainPost.data.title}</h3>
-            </article>
-        )
+      mainPost && (
+        <article class={classes.mainPost.container}>
+          <img
+            src={mainPost.data.heroImage}
+            alt={mainPost.data.title}
+            class={classes.mainPost.img}
+          />
+          <h3 class={classes.mainPost.title}>{mainPost.data.title}</h3>
+        </article>
+      )
     }
+    <div></div>
+  </div>
+  <div></div>
 </section>

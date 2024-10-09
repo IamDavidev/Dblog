@@ -1,11 +1,12 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
-import BaseTitle from '../components/atoms/BaseTitle.astro'
-import PageLayout from '../layouts/PageLayout.astro'
-import RecentPosts from '../components/RecentPosts.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseTitle from "../components/atoms/BaseTitle.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import AllPosts from "../components/AllPosts.astro";
 ---
 
 <PageLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<BaseTitle title="DBLOG" />
-	<RecentPosts />
+  <BaseTitle title="DBLOG" />
+  <!-- <RecentPosts /> -->
+  <AllPosts />
 </PageLayout>

@@ -1,42 +1,43 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection } from "astro:content";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
-import PageLayout from '../../layouts/PageLayout.astro'
-import PostCard from '../../components/PostCard.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import PageLayout from "../../layouts/PageLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+import BaseTitle from "../../components/atoms/BaseTitle.astro";
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-)
+);
 
 const classes = {
   header: {
-    container: 'mb-8 mx-auto',
-    title: 'text-3xl font-semibold text-primary-dark dark:text-primary-light'
+    container: "mb-8 mx-auto",
+    title: "text-3xl font-semibold text-primary-dark dark:text-primary-light",
   },
-  container: 'max-w-3xl my-4 mx-auto',
-  list_posts: 'flex flex-row flex-wrap gap-8 justify-center items-start'
-}
+  container: "max-w-3xl my-4 mx-auto",
+  list_posts: "flex flex-row flex-wrap gap-8 justify-center items-start",
+};
 ---
 
 <PageLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<div>
-		<div class={classes.header.container}>
-			<h2 class={classes.header.title}>All blog posts</h2>
-		</div>
-		<section class={classes.list_posts}>
-			{
-				posts.map((post) => (
-					<PostCard
-						title={post.data.title}
-						description={post.data.description}
-						pubDate={post.data.pubDate}
-						heroImage={post.data.heroImage ?? ''}
-						author={post.data.author}
-						tags={post.data.tags}
-					/>
-				))
-			}
-		</section>
-	</div>
+  <div>
+    <div class={classes.header.container}>
+      <BaseTitle title="All blog posts" />
+    </div>
+    <!-- <section class={classes.list_posts}>
+      {
+        posts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            heroImage={post.data.heroImage ?? ""}
+            author={post.data.author}
+            tags={post.data.tags}
+          />
+        ))
+      }
+    </section> -->
+  </div>
 </PageLayout>

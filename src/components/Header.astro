@@ -1,62 +1,61 @@
 ---
-import HeaderLink from './HeaderLink.astro'
-import ButtonToggleTheme from './atoms/ButtonToggleTheme.astro'
+import HeaderLink from "./HeaderLink.astro";
+import ButtonToggleTheme from "./atoms/ButtonToggleTheme.svelte";
 
 interface Link {
-  title: string
-  url: string
+  title: string;
+  url: string;
 }
 
 const links: Link[] = [
   {
-    title: 'Blog',
-    url: '/blog'
+    title: "Blog",
+    url: "/blog",
   },
   {
-    title: 'Projects',
-    url: '/projects'
+    title: "Projects",
+    url: "/projects",
   },
   {
-    title: 'About',
-    url: '/about'
+    title: "About",
+    url: "/about",
   },
   {
-    title: 'Newsletter',
-    url: '/newsletter'
-  }
-]
+    title: "Newsletter",
+    url: "/newsletter",
+  },
+];
 
 const classes = {
   container:
-    'mb-7 md:mb-14 flex flex-col gap-4 sm:flex-row justify-between items-center text-primary-dark dark:text-primary-light',
-  left: 'text-primary-dark dark:text-primary-light text-sm lg:text-2xl font-bold',
+    "mb-7 md:mb-14 flex flex-col gap-4 sm:flex-row justify-between items-center text-primary-dark dark:text-primary-light",
+  left: "text-primary-dark dark:text-primary-light text-sm lg:text-2xl font-bold",
   right: {
-    container: 'flex flex-row justify-between items-center gap-4',
+    container: "flex flex-row justify-between items-center gap-4",
     navbar: {
-      container: 'flex flex-row justify-between items-center gap-4',
-      item: 'hover:text-accent-pink text-sm sm:text-xl text-primary-dark dark:text-primary-light'
+      container: "flex flex-row justify-between items-center gap-4",
+      item: "hover:text-accent-pink text-sm sm:text-xl text-primary-dark dark:text-primary-light",
     },
-    toogle: ''
-  }
-}
+    toogle: "",
+  },
+};
 ---
 
 <header class={classes.container}>
-	<a href="/" class={classes.left}>
-    David Lezama</a>
-	<div class={classes.right.container}>
-		<nav class={classes.right.navbar.container}>
-			{
-				links.map((link: Link) => {
-					return (
-						<HeaderLink href={link.url} class={classes.right.navbar.item}>
-							<span>{link.title}</span>
-						</HeaderLink>
-					);
-				})
-			}
-		</nav>
-		<!-- o<button class='toggle-theme'>🌑</button> -->
-    <ButtonToggleTheme client:visible />
-	</div>
+  <a href="/" class={classes.left}> David Lezama</a>
+  <div class={classes.right.container}>
+    <nav class={classes.right.navbar.container}>
+      {
+        links.map((link: Link) => {
+          return (
+            <HeaderLink href={link.url} class={classes.right.navbar.item}>
+              <span>{link.title}</span>
+            </HeaderLink>
+          );
+        })
+      }
+    </nav>
+    <!-- o<button class='toggle-theme'>🌑</button> -->
+    <ButtonToggleTheme client:load />
+  </div>
 </header>

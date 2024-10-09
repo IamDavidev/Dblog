@@ -1,80 +1,83 @@
 ---
-import Tag from './atoms/Tag.astro'
+/* ----- Imports ----- */
+import PostDescription from "./atoms/post/PostDescription.astro";
+import PostImage from "./atoms/post/PostImage.astro";
+import Tag from "./atoms/Tag.astro";
 
+/* ----- Props ----- */
 interface Props {
-  heroImage: string
-  author: string
-  pubDate: Date
-  title: string
-  description: string
-  tags: string[]
+  heroImage: string;
+  author: string;
+  pubDate: Date;
+  title: string;
+  description: string;
+  tags: string[];
 }
 
 const { heroImage, author, pubDate, title, description, tags } =
-  Astro.props as Props
+  Astro.props as Props;
 
+/* ----- Parsers ----- */
 const parsePubDate = (date: Date) => {
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
-}
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
 
-const parseDescription = (description: string) => {
-  return description.length > 100
-    ? `${description.slice(0, 100)}...`
-    : description
-}
-
+/* ----- Styles ----- */
 const classes = {
-  container: 'min-w-64  max-w-sm',
+  container: "min-w-64  max-w-sm",
   header: {
-    contianer: 'w-full mb-8',
-    img: 'w-full h-auto'
+    contianer: "w-full mb-8",
+    img: "w-full h-auto",
   },
   main: {
-    container: '',
-    details: 'text-accent-pink font-semibold text-sm mb-3',
+    container: "",
+    details: "text-accent-pink font-semibold text-sm mb-3",
     content: {
-      container: '',
+      container: "",
       title:
-        'text-2xl mb-3 font-raleway font-semibold text-primary-dark dark:text-primary-light',
-      description: 'text-content-dark dark:text-content-light text-base',
+        "text-2xl mb-3 font-raleway font-semibold text-primary-dark dark:text-primary-light",
+      description: "text-content-dark dark:text-content-light text-base",
       tags: {
-        container: 'flex flex-wrap gap-2'
-      }
-    }
+        container: "flex flex-wrap gap-2",
+      },
+    },
   },
   footer: {
-    container: ''
-  }
-}
+    container: "",
+  },
+};
 ---
 
 <article class={classes.container}>
-    <header class={classes.header.contianer}>
-        <img class={classes.header.img} src={heroImage} alt="hero image" />
-    </header>
-    <div>
-        <div class={classes.main.details}>
-            <span>
-                {parsePubDate(pubDate)}
-            </span>
-        </div>
-        <div class={classes.main.content.container}>
-            <h3 class={classes.main.content.title}>
-                {title}
-            </h3>
-            <p class={classes.main.content.description}>
-                {parseDescription(description)}
-            </p>
-            <div class={classes.main.content.tags.container}>
-                {tags.map((tag) => (
-                    <Tag text={tag} />
-                ))}
-            </div>
-        </div>
+  <header class={classes.header.contianer}>
+    <!-- <img class={classes.header.img} src={heroImage} alt="hero image" /> -->
+    <PostImage src={heroImage} alt="hero image" />
+  </header>
+  <div>
+    <div class={classes.main.details}>
+      <spna>
+        {author}
+      </spna>
+      <span>
+        {" - "}
+      </span>
+      <span>
+        {parsePubDate(pubDate)}
+      </span>
     </div>
-    <footer></footer>
+    <div class={classes.main.content.container}>
+      <h3 class={classes.main.content.title}>
+        {title}
+      </h3>
+      <PostDescription description={description} />
+      <div class={classes.main.content.tags.container}>
+        {tags.slice(0, 3).map((tag) => <Tag text={tag} />)}
+      </div>
+    </div>
+  </div>
+  <footer></footer>
 </article>
